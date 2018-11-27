@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" href="images/icon.png" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="index.html#one">Home</a></li>
+						<li><a href="MLAgeGuesser.html" class="active">Mozart</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Mozart</h1>
+							<span class="image fit"><img src="images/pic08.png" alt=""  /></span>
+                            <p>Inspired by the work of GANGough, I am currently working on a project I dubbed Mozart to see if art can be created by a machine. Starting with basic techniques such as neural style transfers, my aim in this project utilize Generated Adversarial Networks (GAN’s) to create art in the style of another artists. </p>
+                            <p>In order to do this, I will stylize a set of images in the style of an artists (for now I am currently trying to do this with the MNIST database). I will utilize the neural style technique in order to do this. After this, I will feed the stylized imaged to an Auxillary-Classifer GAN (in the case of the MNIST data the classes will be 0-9). Then I will ask the GAN to produce what it thinks a requested number will look like. </p>
+                            <p>Currently I am working on stylizing the 60,000+ images from the MNIST database, utilizing a Nvidia GTX 1060 with 6GB of RAM. </p>
+                            <p>While we wait let’s look at what neural style transfers can do!  </p>
+
+                            <img src="images/pic09.jpg" alt=""  style="display: block;
+    margin: 0 auto;"/>
+                            <p>The above image was created by cropping out the women, running a neural style transfer on her, and then blending the orginial and cropped image.</p>
+                            <br>
+                            <h2 style="align-content: center">Click <a href="https://github.com/sidpremkumar/ML-Art">here</a> to learn more about how it works!</h2>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
