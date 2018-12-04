@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" href="images/icon.png" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="index.html#one">Home</a></li>
+						<li><a href="mozGan.html">About</a></li>
+                        <li><a href="mozGan_v0.html" >Version 0</a></li>
+                        <li><a href="mozGan_v1.html" class="active">Version 1</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Verson 1</h1>
+							<span class="image fit"><img src="images/pic08.png" alt=""  /></span>
+                            <p>The aim of this project is to see if a computer can generate original art in the style of another artist. Using the neural style transfer technique, I was able to stylize thousands of images and feed that through a AC-GAN. You can click <a href="mozGan_v0.html">here</a> or my <a href="https://github.com/sidpremkumar/ML-Art">Github</a> to learn more about how the program works.</p>
+                             <img src="images/pic13.gif" alt=""  style="display: block;
+    margin: 0 auto; height: 25%; width: 25%; object-fit: contain"/>
+
+                            <br>
+                            <p>Above is a GIF of the evolution of the generator. Snapshots were taken every 1000 images asking the generator to predict what the number 0 would look like. It’s clear that this is a significant upgrade from version 0. After using more training data this shows that it is possible to create original art in the style of another artists. </p>
+                            <img src="images/pic14.bmp" alt=""  style="display: block;
+    margin: 0 auto; height: 25%; width: 25%; object-fit: contain"/>
+                            <br>
+                            <p>Above is a still taken after 16,000 iterations. Compared to version 0, there is much more structure and a lot more of the color white. It is clear to see that there is a 0 in that picture. There are still many issues however and it is clear that it is very easy to over train the model with diminishing results. Moving forward I would like to optimize the model and look at <a href="https://github.com/rkjones4/GANGogh">GANGough</a> as a guide. I also would like to explore making the images larger as the small size limits how much style the images can inherit.</p>
+                            <h3 style="align-content: center">Click <a href="https://github.com/sidpremkumar/ML-Art">here</a> to learn more about how it works!</h3>
+                            <h3> Click <a href="https://www.instagram.com/thisismozart/">here</a> to follow my progress on Instagram!</h3>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
