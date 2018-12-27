@@ -82,9 +82,11 @@
                    string = data['string']
                    score = data['score']
                    song_art = data['artwork']
+                   genius_url = data['genius_url']
                    localStorage.setItem('string', string);
                    localStorage.setItem('score', score);
                    localStorage.setItem('song_art', song_art);
+                   localStorage.setItem('genius_url', genius_url);
                    window.open("/fancy2.html","_self")
                }).fail(function(){
                     localStorage.setItem('string', "Error Invalid Song");

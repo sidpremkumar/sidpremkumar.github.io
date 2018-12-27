@@ -45,7 +45,7 @@
                             <br>
                             <br>
                             
-                            <h3 style="align-content: center">Click <a href="https://github.com/sidpremkumar/Fancy">here</a> to learn to view the code!</h3>
+                            <h3 style="align-content: center">Click <a href="https://github.com/sidpremkumar/Fancy">here</a> to view the code!</h3>
 						</div>
 					</section>
 
@@ -70,6 +70,7 @@
 			<script src="assets/js/main.js"></script>
         <script>
             string = localStorage.getItem('string')
+            genius_url = localStorage.getItem('genius_url')
             if (string != "Error Invalid Song"){
                 string = localStorage.getItem('string')
             score = localStorage.getItem('score')
@@ -81,7 +82,12 @@
             
             score = parseFloat(score).toFixed(2);
             display = "Score: " + score
-            document.getElementById("title").innerHTML = string;
+            var a = document.createElement('a');
+            var linkText = document.createTextNode(string);   
+            a.appendChild(linkText);
+            a.title = string;
+            a.href = genius_url;
+            document.getElementById("title").innerHTML = a;
             document.getElementById("score").innerHTML = display;
             document.getElementById("song_art").appendChild(song_art);
                 }
