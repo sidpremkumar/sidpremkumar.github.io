@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" href="images/icon.png" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="index.html#one">Home</a></li>
+						<li><a href="Fancy.html" class="active">Fancy</a></li>
+                        <li><a href="fancyAbout.html">About</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+                            <div id="query">
+							<h1 class="major">Fancy</h1>
+							<div id="song_art"></div>
+                            <br>
+                            <h2 style="text-align: center" id="title"></h2>
+                                </div>
+                            <div id="parent"></div>
+                            <div><h2 id="score" style="text-align: center"></h2></div>
+                            <button type="button" onclick=goback()>Go Back</button>
+                            <br>
+                            <br>
+                            
+                            <h3 style="align-content: center">Click <a href="https://github.com/sidpremkumar/Fancy">here</a> to learn to view the code!</h3>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+        <script>
+            string = localStorage.getItem('string')
+            if (string != "Error Invalid Song"){
+                string = localStorage.getItem('string')
+            score = localStorage.getItem('score')
+            song_art_url = localStorage.getItem('song_art')
+            var song_art = document.createElement("IMG");
+            song_art.src = song_art_url
+            song_art.style = "display: block; margin: 0 auto; height: 25%; width: 25%; object-fit: contain"
+            console.log(song_art)
+            
+            score = parseFloat(score).toFixed(2);
+            display = "Score: " + score
+            document.getElementById("title").innerHTML = string;
+            document.getElementById("score").innerHTML = display;
+            document.getElementById("song_art").appendChild(song_art);
+                }
+                else { 
+                     document.getElementById("title").innerHTML = string;
+                }
+
+          function goback(){
+              window.open("/Fancy.html","_self")
+          };
+
+        </script>
+	</body>
+</html>
