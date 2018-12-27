@@ -37,7 +37,7 @@
 							<h1 class="major">Fancy</h1>
 							<div id="song_art"></div>
                             <br>
-                            <h2 style="text-align: center" id="title"></h2>
+                            <h2 style="text-align: center"><a id="title2"></a></h2>
                                 </div>
                             <div id="parent"></div>
                             <div><h2 id="score" style="text-align: center"></h2></div>
@@ -78,16 +78,13 @@
             var song_art = document.createElement("IMG");
             song_art.src = song_art_url
             song_art.style = "display: block; margin: 0 auto; height: 25%; width: 25%; object-fit: contain"
-            console.log(song_art)
-            
             score = parseFloat(score).toFixed(2);
             display = "Score: " + score
-            var a = document.createElement('a');
-            var linkText = document.createTextNode(string);   
-            a.appendChild(linkText);
-            a.title = string;
+                
+            var a = document.getElementById('title2');
+            
             a.href = genius_url;
-            document.getElementById("title").innerHTML = a;
+            a.innerHTML = string;
             document.getElementById("score").innerHTML = display;
             document.getElementById("song_art").appendChild(song_art);
                 }
