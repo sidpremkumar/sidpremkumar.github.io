@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+        <link rel="shortcut icon" href="../images/icon.png" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="index.html#one">Home</a></li>
+						<li><a href="attendance.html" class="active">Attendance</a></li>
+                        <li><a href="labs.html">Labs</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">CS112 - A Section</h1>
+							<span class="image fit"><img src="assets/java_cover.jpg" alt=""  style="display: block;
+    margin: 0 auto; height: 70%; width: 100%; object-fit: contain"/></span>
+                            <h1>Attendance</h1>
+                            <hr>
+                            <div id="forminfo">
+                            <form method="post" action="http://127.0.0.1:5000/ ">
+                                <h3>Username:</h3>
+                                <input type="text" name="username" id="username" value="" placeholder="Username">
+                                <br>
+                                <h3>Secret:</h3>
+                                <input type="text" name="secret" id="secret" value="" placeholder="1234">
+                            <br>
+                                <h3>Lab Number:</h3>
+                                <select name="labnumber" id="labnumber">
+                                    <option value="">Lab Number</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                </select>
+                            </form>
+                            <input type="submit" onclick="query()"><br/>
+                            </div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+            <script>
+           function query() {
+               labnumber = document.getElementById("labnumber").value;
+               secret = document.getElementById("secret").value;
+               username = document.getElementById("username").value;
+               ret = $.post("https://cs112-attendance.herokuapp.com/submit", {labnumber:labnumber, secret:secret, username:username}).done(function(data){
+                   response = data['response'];
+                   var ret = document.createElement("h3");
+                   ret.innerHTML = response;
+                   document.getElementById("forminfo").innerHTML = response;
+                   var btn = document.createElement("BUTTON");        
+                   var t = document.createTextNode("Go Back");
+                   btn.appendChild(t);
+                   btn.addEventListener('click', function() {
+                        window.location.reload();
+                    }, false);
+                   var mybr = document.createElement('br');
+                   document.getElementById("forminfo").appendChild(mybr);
+                   document.getElementById("forminfo").appendChild(mybr);
+                   document.getElementById("forminfo").appendChild(btn);
+                   
+               }).fail(function(){
+                   try{
+                   response = data['response'];
+                    }
+                   catch(err){
+                       response = "Uh Oh, something went wrong."
+                   }
+                   var ret = document.createElement("h3");
+                   ret.innerHTML = response;
+                   document.getElementById("forminfo").innerHTML = response;
+                   var btn = document.createElement("BUTTON");        
+                   var t = document.createTextNode("Go Back");
+                   btn.addEventListener('click', function() {
+                        window.location.reload();
+                    }, false);
+                   btn.appendChild(t);
+                   var mybr = document.createElement('br');
+                   document.getElementById("forminfo").appendChild(mybr);
+                   document.getElementById("forminfo").appendChild(mybr);
+                   document.getElementById("forminfo").appendChild(btn);
+                   
+               });
+
+            }
+            
+        </script>
+
+	</body>
+</html>
