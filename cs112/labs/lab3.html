@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+        <link rel="shortcut icon" href="../../images/icon.png" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="../../index.html">Home</a></li>
+                        <li><a href="../labs.html">Labs</a></li>
+                        <li><a href="../attendance.html">Attendance</a></li>
+                        <li><a href="lab2.html" class="active">Lab 2</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Lab 3</h1>
+                            <p>The purpose of this lab is to learn the difference between <strong>static and instance methods</strong>, and write some basic code involving drawing with Java.</p>
+                            <p>Before we start lets create a new Java class for this lab. You can follow the instruction in <a href="lab1.html">Lab 1</a> or <a href="lab2.html">Lab 2</a> to do this. <strong>Make sure to call it <em>lab3</em></strong>. You should end up with a project like this:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                          <hr>
+                            <h2>Absolute Value</h2>
+                            <p><p>Copy the folowing code inside the <code>public class lab3 {</code> in the project we just created:</p>
+                            <pre><code> public static double abs(double x) {
+       //TO DO: Write a conditional that returns the absolute value of the input!
+    	return (x);
+    }</code></pre>
+                            <p>Write a conditional statement that will return the absolute value of the input. For instance, the absolute value of -4 is 4, and the absolute value of 4 is also 4.<em> Note:</em> You can use built in methods for this problem.<br>After you've finished this test out your method by adding this to the main function:</p>
+                            <pre><code>System.out.println(abs(-10));
+System.out.println(abs(10));</code></pre>
+                            <p>Which should print this when run:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>So far in this class, we have been using <strong>static</strong> methods. This way we can just call <code>abs(x);</code> in the main method. But what happens if we remove the static declaration?<br>Then abs becomes an <strong>instance</strong> method and we can no longer call <code>abs(x);</code> in the main method. So how do we use it?</p>
+                            <p>First lets remove the static declaration:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                                <p><em>Note the errors that come up when we do this.</em></p>
+                            </div>
+                            <p>Now to call the method in our main function we have to create a lab3 object as follows:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img4.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>Finally we have to call the <code>abs</code> function on our newly created object:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img5.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <hr>
+                            <h2>Square Root using Newton’s Method</h2>
+                            <p>First lets understand Newton's Method. Newton’s method is an algorithm that approximates the roots of an equation. When trying to find the root of the number x, it tries to find the root of the equation f(t) = t<sup>2</sup> = x. Starting with an initial guess of t<sub>0</sub>, then makes a second guess t<sub>1</sub> calculated as:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img6.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            It then makes a new guess t<sub>2</sub> by substituting t<sub>1</sub> in place of t<sub>0</sub> in the equation above. It keeps on making guesses until t<sup>2</sup><sub>i</sub> is within an acceptable tolerance ε of x. For today’s example, you will want to calculate t<sub>i</sub> + 1 with the equation:
+                            <div style="margin:2em;">
+                                <img src="lab3/img7.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>You will also use <em>1e-15</em> as the acceptable tolerance</p>
+                            <h3>TLDR: While this is true: abs(t - x/2) > 1e-15 * t continuously update t using one of the equations above</h3>
+                            <p>Copy the folowing code inside the <code>public class lab3 {</code> in the project we just created:</p>
+                            <pre><code>public static double epsilon = 1e-15;    // relative error tolerance
+                            
+// Calculates the square root of x using Newton's Method; 
+// Note: will go into an endless loop if x < 0 
+
+public static double sqrt(double x) { 
+        lab3 lab = new lab3(); 
+        
+        double t = x;              // estimate of the square root of x
+        
+        // repeatedly apply Newton update step until desired precision is achieved
+        while (lab.abs(t - x/t) > epsilon * t) {
+            //TO DO: complete this while loop by updating t!
+
+        }
+        
+        return t; 
+    }    
+</code></pre></pre>
+                            <p>Compleate the missing infromation and test it by running the following in your main method:</p>
+                            <pre><code>System.out.println(sqrt(144));
+System.out.println(sqrt(63));
+System.out.println(sqrt(6));</code></pre>
+                            <p>If all goes well you should get the following as an output:</p>
+                            <div style="margin:2em;">
+                                <img src="lab3/img8.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>

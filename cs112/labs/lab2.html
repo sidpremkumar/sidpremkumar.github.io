@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+        <link rel="shortcut icon" href="../../images/icon.png" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="../../index.html">Home</a></li>
+                        <li><a href="../labs.html">Labs</a></li>
+                        <li><a href="../attendance.html">Attendance</a></li>
+                        <li><a href="lab2.html" class="active">Lab 2</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Lab 2</h1>
+                            <p>In this lab we're going to learn more about the difference between <strong>static and object classes</strong>. Before we start lets create a new Java class for this lab. Follow the instructions below: </p>
+                            <div style="margin:2em;">
+                                <ol>
+                                <li>Open Eclipse and highlight the <em>src</em> folder under the Java project <em>labs</em> that we created in <a href="lab1.html">Lab 1</a></li>
+                                    <img src="lab2/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                                <li>Create a new class like we did in Lab 1</li>
+                                    <img src="lab2/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                    <li>Exactly like we did in Lab 1, <strong>make sure to name the file lab2</strong>, select the appropriate information and click finish.</li>
+                                    <img src="lab2/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                </ol>
+						</div>
+                            <hr>
+                            <h2>Writing Static Methods</h2>
+                            <p>Copy the folowing code inside the <code>public class lab2 {</code> in the project we just created:</p>
+                            <pre><code>public static void print3Times(String s) {
+        for (int i = 0; i < 3; i++) {
+            System.out.println(s);
+        }
+    }</code></pre></pre>
+                            <p>The static method called print3Times that takes a string as its parameter and prints it three times. <br><strong><em>Note:</em></strong> The header of the method has the word <em>void</em> in it. Make sure you understand what that means, and ask us if you’re not sure.</p>
+                            <p>Note how this is a <strong>static</strong> method. Becuase of this, to call the code in the main method all we need to do is add <code>print3Times("test");</code>to the main function and we get the desired result:</p>
+                            <div style="margin:2em;">
+                                <img src="lab2/img4.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                            </div>
+                            <p>In this lab we'll see how this is very different from object methods.</p>
+                            <hr>
+                            <h2>Working with Roman Numerals</h2>
+                            <p>Recall that a long time ago, numbers were represented via Roman Numerals. The values of each symbols are as follows</p>
+                            <div style="margin:2em;">
+                            <ul>
+                            <li>I = 1</li>
+                            <li>V = 5</li>
+                            <li>X = 10</li>
+                            <li>L = 50</li>
+                            <li>C = 100</li>
+                            <li>D = 500</li>
+                            <li>M = 1000</li>
+                            </ul>
+                            </div>
+                            <p>Here are some rules to follow when converting from Roman Numerals to Digits</p>
+                            <div style="margin:2em;">
+                            <ol>
+                                <li>Reading left to right symbols with higher values will generally appear first. The overall value is given by taking the sum of values from left to right</li>
+                                <li>If a single lower value is placed left of a higher value letter, it is subtracted from the total instead.</li>
+                                <li>Only one single lower value can be subtracted from a higher value</li>
+                                <li>”I” can only be subtract from ”V” and ”X”. ”X” can only subtract from ”L” and ”C”, ”C” can only subtract from ”D” and ”M’, and ”V”, ”L”, and ”D” can never subtract.</li>
+                                </ol>
+                            </div>
+                            
+                            <hr>
+                            <h2>Part 1: Static Roman Numerals</h2>
+                            <p>Copy the folowing code inside the <code>public class lab2 {</code> in the project we just created:</p>
+                            <pre><code> private static int convertSingleRomanNumeral(char numeral) {
+        int val = 0;
+
+        if(numeral == 'I') {
+            val = 1;
+        } else if(numeral == 'V') {
+            val = 5;
+        } else if(numeral == 'X') {
+            val = 10;
+        } else if(numeral == 'L') {
+            val = 50;
+        } else if(numeral == 'C') {
+            val = 100;
+        } else if(numeral == 'D') {
+            val = 500;
+        } else if(numeral == 'M') {
+            val = 1000;
+        }
+
+        return  val;
+    }
+
+    public static int convert(String romanNum) {
+
+        int numericalValue = 0;
+
+        for(int i = 0 ; i < romanNum.length() - 1 ; i++) {
+            if ( convertSingleRomanNumeral(romanNum.charAt(i)) < 
+                   convertSingleRomanNumeral(romanNum.charAt(i+1)) ) {
+                numericalValue -= convertSingleRomanNumeral(romanNum.charAt(i));
+            } else {
+                numericalValue += convertSingleRomanNumeral(romanNum.charAt(i));
+            }
+        }
+        return numericalValue + convertSingleRomanNumeral(romanNum.charAt(romanNum.length()-1));
+    }
+
+    public static int add(String romanNum1, String romanNum2) {
+        return convert(romanNum1) + convert(romanNum2);
+    }</code></pre>
+                    <p><strong>First: </strong>Lets test out the convert method by calling it in the main function. Try to figure it out yourself and we'll go over it as a class. Try printing the following Roman Numberals:</p>
+                            <div style="margin:2em;">
+                            <ul>
+                            <li>X</li>
+                            <li>LXXXXIX</li>
+                            <li>CDV</li>
+                            </ul>
+                            </div>
+                    <p>We should get an output like this:</p>
+                            <div style="margin:2em;">
+                                <img src="lab2/img5.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                            </div>
+                    <p><strong>Second:</strong> Lets try out add method by calling it in the main method. Try to figure it out yourself and we'll go over it as a class. Try adding the following Roman Numberals:</p>
+                         <div style="margin:2em;">
+                            <ul>
+                            <li>X + X</li>
+                            <li>XI + CDV</li>
+                            <li>LXXXXIX + I</li>
+                            </ul>
+                            </div>
+                    <p>We should get an output like this:</p>
+                            <div style="margin:2em;">
+                                <img src="lab2/img6.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                            </div>
+                            <hr>
+                            <h2>Part 2: Roman Numeral Objects</h2>
+                            <p>Classes made up of only static methods are good for something, but don't take full advantage of Object Oriented Paradigm (OOP) that java is based on. To illustrate the difference we will convert our static Roman Numeral API into an actual object class.</p>
+                            <div style="margin:2em;">
+                            <ol>
+                                <li>First lets create a new class called RomanNumeral</li>
+                                <img src="lab2/img7.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                <br>
+                                <img src="lab2/img8.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                <li>Lets think about what our object will have to store. We're going to have to keep the <strong>numerical value</strong> and the <strong> string value</strong> of our Roman numeral. Lets add that to our object</li>
+                                <img src="lab2/img9.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                <li>Now lets add a constructor. This will be used to first initialize our object</li>
+                                <img src="lab2/img10.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                <p>We can see now when we first create our object it will take in a string (i.e. "XI") and convert that strinig and store it in the numerical value field of out object.</p>
+                            </ol>
+                            </div>
+                            <p>Now to finish the lab create the following methods, the headers are given:</p>
+                            <div style="margin:2em;">
+                                <ul>
+                                <li>Create the to string method that gives back the Roman Numeral representation of this number</li>
+                                    <code>public String toString()</code>
+                                <li>Create an equals method that checks if 2 RomanNumerals are equivalent</li>
+                                    <code>public boolean equals(RomanNumeral other)</code>
+                                <li>Create an add method that takes in another RomanNumeral object, and returns an integer that is the sum of the invoked RomanNumeral, and the other RomanNumeral</li>
+                                    <code>public int add(RomanNumeral other)</code>
+                                </ul>
+                            </div>
+                            <p>To test your methods, add the following to the main function of your <em>lab2</em> class</p>
+                            <pre><code>RomanNumeral x = new RomanNumeral("X");
+RomanNumeral y = new RomanNumeral("IX");
+System.out.printf("%s + %s = %d\n", x, y, x.add(y));</code></pre>
+                            <p>If you did everything correctly you should see this once you run your program:</p>
+                            <div style="margin:2em;">
+                                <img src="lab2/img11.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                            </div>
+                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
