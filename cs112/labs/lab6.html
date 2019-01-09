@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+        <link rel="shortcut icon" href="../../images/icon.png" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="../../index.html">Home</a></li>
+                        <li><a href="../labs.html">Labs</a></li>
+                        <li><a href="../attendance.html">Attendance</a></li>
+                        <li><a href="lab6.html" class="active">Lab 6</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Lab 6</h1>
+                            <p>There are two main ways of debugging, print statements and utilizing the Eclipse debugger. We're going to try out both today and learn how to use them. Let's start by creating a new Eclipse class to work on this lab. You can follow what we did on <a href="lab1.html">Lab 1 </a>or <a href="lab2.html">Lab 2</a> to do this. <strong>Make sure to call it <em>lab6</em>.</strong> You should end up with this: </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>Copy the folowing code inside the <code>public class lab6 {</code> in the project we just created:</p>
+                            <pre><code>public static int mystery(int n) {
+    int y;
+    int x = 1;
+    int total = 0;
+
+    while ( x <= 10 ) {
+       y = x * x;
+       total += y;
+       ++x;
+       } // end while
+
+    return total; 
+}</code></pre></pre>
+                            <p>Copy this into your main function to test the program:</p>
+                            <pre><code>System.out.println(mystery(15));</code></pre>
+                            <p><strong>What does this function do?</strong> Lets approach it using print statements first.</p>
+                            <hr>
+                            <h2>Part 1: Print statements</h2>
+                            <p>The most common way, and what you guys have probably been using, is to use print statments such as <code>System.out.println(x);</code> to debug our code (where is x is a variable of interest). We just place a verity of print statements around the code to in an attempt to figure out what the code does. Take 2 minutes and places some print statements around the code in order to try and understand it. <em><strong>Do not </strong></em> spend more than 2 minutes on this, the second part of this lab should make it a lot easier to debug.</p>
+                            <hr>
+                            <h2>Part 2: Eclipse Debugger</h2>
+                            <p>In the second part of the lab we're going to use a much more powerfull tool built into eclipse. To start copy the folowing code inside the <code>public class lab6 {</code> in the project we just created:</p>
+                            <pre><code>public static int Foo(int input_number) {
+		int x = input_number + 1; 
+		if (x > 5) {
+			return 50;
+		} else {
+			return 20; 
+		}
+}</code></pre>
+                            <p>Comment out what you have in your main function and copy this into it:</p>
+                            <pre><code>int input_number = 21; 
+int result = Foo(input_number);
+System.out.println(result);</code></pre>
+                            <p>The code you need for this section should look <em>something</em> like this: </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img2.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>There are two perspectives: Java perspective (what we're used to seeing), Debug perspective. This is how to switch between the two (left is Java, right is Debug):</p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img3.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>Switching to the Debug perspective should look like this: </p>
+                            
+                            <div style="margin:2em;">
+                            <img src="lab6/img4.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                                <br><em>(Note: Java will automatically switch to the Debug perspective when we start Debugging)</em>
+                            </div>
+                            <p>Start the Debugger: Clicking the ant icon (see below) starts the debugger: </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img5.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                             <p>You can see that clicking it does nothing right now :(, the code will run normally as if you clicked the run icon. This is because we have set no <strong>breakpoints</strong>. Breakpoints (see blue dots below) can be set by clicking the space between the lines of code and the edge of the screen: </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img6.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p><em>What do breakpoints do? </em>They tell the debugger when to stop! Now if we click the ant icon, the debugger will stop, and it should look like this: </p>
+                        <div style="margin:2em;">
+                            <img src="lab6/img7.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>That's because we <em>stopped</em> at the breakpoint we set. [Try moving around the breakpoint and see how this changes, just press the red stop button to return]
+Now once we're in the debugger we have 3 different ways of moving around, as seen here:  </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img8.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <div style="margin:2em;">
+                                <ol>
+                                <li>The first one: <em>Step Into</em>: Steps into the function, for example on line 8, if we pressed step into, we would dive into the function Foo starting from line 13. </li>
+                                <li>The second one: <em>Step Over</em>: Steps over the function, for example on line 8, if we pressed step over, we would not dive into the function, and continue on line 8. </li>
+                                <li>The third one: <em>Step Out Of</em>: Steps out of the function, for example, if we were in the function Foo, and pressed step out of, we would return back into the main function.</li>
+                                </ol>
+                            </div>
+                            <p><strong><em>Try moving around the code with the 3 functions! <br>After you’re done moving around stop the code, and rerun the debugger so we stop on line 7. </em></strong><br>Now that we know how to move around the code, but how does this help us? Well in the debugger, we can view the list of current variables (see below)! </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img9.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>Notice how there is nothing in the variables when we start the code because there are <em>no variables in scope</em>. Let's try moving into the Foo function:</p>
+                             <div style="margin:2em;">
+                                 <ol>
+                                 <li>Press Step over to move past line 7 </li>
+                                 <li>Press Step into to move into the function foo</li>
+                                 </ol>
+                            </div>
+                            <p>Our debugger should look like this now:</p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img10.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>Notice two things: The green line indicates where we are (which should be in the Foo function), and now under variables, we can see input_number which was passed into the Foo function! <br>Now if we clicked step over, x would come into scope, and we would see it in the variables: </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img11.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>You can start to see how this is helpful for debugging. <br>Now imagine if we are done with debugging, and want to return back to the main function,<em> without executing the remaining lines in Foo</em>. We could click Step Out Of to do this:</p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img12.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>Notice how x is no longer in scope, and can't be seen in the variables. If we step over to the next line, result would come into scope and we would be able to see what the function foo returned: </p>
+                            <div style="margin:2em;">
+                            <img src="lab6/img13.jpg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>This is it, these are the basis of the debugger, it helps us move around code in order to see what values variables have and we can use this information to change and modify our code! *wow* <br>
+ 
+There is a lot more to learn about the Debugger if you choose, I recommend learning how to use the expressions pannel if you want to learn more. <br> <strong>Now, try to use the debugger to understand what the original problem does! </strong>Make sure to place break points and understand how to view variable values. Once you've figured it out let us know!</p>
+                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
