@@ -1,0 +1,53 @@
+### LAB1 ###
+
+### NOTES ###
+
+Create the project & class together
+
+
+### SOLUTION - PART 1: ###
+package labs;
+
+public class lab1 {
+
+
+
+	   public static double triArea(int b, int h) {
+		    double area = b/2*h;
+		    return area;
+	    }
+
+	    public static void main(String[] args) {
+		        System.out.println("Running lab1.java\n");
+		        double a = lab1.triArea(5,3);
+		        System.out.println("Area is: " + a);
+	    }
+
+}
+
+
+### SOLUTION - PART 2: ###
+
+package labs;
+
+public class lab1 {
+
+
+
+	   public static double triArea(int b, int h) {
+		    double area = b/2*h;
+		    return area;
+	    }
+
+	    public static void main(String[] args) {
+	    		String s1 = "Boston";
+	    		String s2 = "Uni";
+		        System.out.println("Before: " + s1 + " " + s2);
+		        s1 = s1.toUpperCase();
+		        s2 = s2.toLowerCase();
+		        System.out.println("After: " + s1 + " " + s2);
+		        int temp = s1.length() + s2.length();
+		        System.out.println("The length of the two strings combined is: " + temp);
+	    }
+
+}
