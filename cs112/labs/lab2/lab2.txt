@@ -1,0 +1,32 @@
+### LAB2 ###
+
+### NOTES ###
+
+Go through writing static methods together
+
+### SOLUTION ###
+
+package labs;
+
+public class RomanNumeral {
+
+	private int numericalValue;
+	private String stringValue;
+
+	public RomanNumeral(String stringValue) {
+		this.stringValue = stringValue;
+		this.numericalValue = lab2.convert(stringValue);
+
+	}
+	public String toString() {
+		return this.stringValue;
+	}
+	public boolean equals(RomanNumeral other) {
+		return other.numericalValue == this.numericalValue;
+	}
+	public int add(RomanNumeral other) {
+		return lab2.add(other.stringValue, this.stringValue);
+	}
+
+
+}
