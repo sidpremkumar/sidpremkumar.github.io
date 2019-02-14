@@ -31,80 +31,194 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">Lab 3</h1>
-                            <p>The purpose of this lab is to learn the difference between <strong>static and instance methods</strong>, and write some basic code involving drawing with Java.</p>
-                            <p>Before we start lets create a new Java class for this lab. You can follow the instruction in <a href="lab1.html">Lab 1</a> or <a href="lab2.html">Lab 2</a> to do this. <strong>Make sure to call it <em>lab3</em></strong>. You should end up with a project like this:</p>
+                            <p>In this lab we're going to work together to solve riddles :o! We're going to get into 5 groups and each be assigned a riddle (see below) to solve. The aim is to get to be able to get the exact same outputs as seen. Before we get started lets create a class for todays lab:</p>
                             <div style="margin:2em;">
-                                <img src="lab3/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
-                          <hr>
-                            <h2>Absolute Value</h2>
-                            <p><p>Copy the folowing code inside the <code>public class lab3 {</code> in the project we just created:</p>
-                            <pre><code> public static double abs(double x) {
-       //TO DO: Write a conditional that returns the absolute value of the input!
-    	return (x);
-    }</code></pre>
-                            <p>Write a conditional statement that will return the absolute value of the input. For instance, the absolute value of -4 is 4, and the absolute value of 4 is also 4.<em><strong> Note:</strong></em> You can use built in methods for this problem (Google!).<br>After you've finished this test out your method by adding this to the main function:</p>
-                            <pre><code>System.out.println(abs(-10));
-System.out.println(abs(10));</code></pre>
-                            <p>Which should print this when run:</p>
-                            <div style="margin:2em;">
-                                <img src="lab3/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
-                            <p>So far in this class, we have been using <strong>static</strong> methods. This way we can just call <code>abs(x);</code> in the main method. But what happens if we remove the static declaration?<br>Then abs becomes an <strong>instance</strong> method and we can no longer call <code>abs(x);</code> in the main method. So how do we use it?</p>
-                            <p>First lets remove the static declaration:</p>
-                            <div style="margin:2em;">
-                                <img src="lab3/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                                <p><em>Note the errors that come up when we do this.</em></p>
-                            </div>
-                            <p>Now to call the method in our main function we have to create a lab3 object as follows:</p>
-                            <div style="margin:2em;">
-                                <img src="lab3/img4.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
-                            <p>Finally we have to call the <code>abs</code> function on our newly created object:</p>
-                            <div style="margin:2em;">
-                                <img src="lab3/img5.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
+                                <ol>
+                                <li>Open Eclipse and highlight the <em>src</em> folder under the Java project <em>labs</em> that we created in <a href="lab1.html">Lab 1</a></li>
+                                    <img src="lab3[old]/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                                <li>Create a new class like we did in Lab 1</li>
+                                    <img src="lab3[old]/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                    <li>Exactly like we did in Lab 1, <strong>make sure to name the file lab2</strong>, select the appropriate information and click finish.</li>
+                                    <img src="lab3[old]/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/>
+                                </ol>
+						</div>
                             <hr>
-                            <h2>Square Root using Newton’s Method</h2>
-                            <p>First lets understand Newton's Method. Newton’s method is an algorithm that approximates the roots of an equation. When trying to find the root of the number x, it tries to find the root of the equation f(t) = t<sup>2</sup> = x. Starting with an initial guess of t<sub>0</sub>, then makes a second guess t<sub>1</sub> calculated as:</p>
-                            <div style="margin:2em;">
-                                <img src="lab3/img6.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
-                            It then makes a new guess t<sub>2</sub> by substituting t<sub>1</sub> in place of t<sub>0</sub> in the equation above. It keeps on making guesses until t<sup>2</sup><sub>i</sub> is within an acceptable tolerance ε of x. For today’s example, you will want to calculate t<sub>i</sub> + 1 with the equation:
-                            <div style="margin:2em;">
-                                <img src="lab3/img7.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
-                            <p>You will also use <em>1e-15</em> as the acceptable tolerance</p>
-                            <h3>TLDR: While this is true: abs(t - x/2) > 1e-15 * t continuously update t using one of the equations above</h3>
-                            <p>Copy the folowing code inside the <code>public class lab3 {</code> in the project we just created:</p>
-                            <pre><code>public static double epsilon = 1e-15;    // relative error tolerance
-                            
-// Calculates the square root of x using Newton's Method; 
-// Note: will go into an endless loop if x < 0 
+                            <h2>Riddle 1: </h2>
+                            <ul>
+                                <li><b>Input:</b></li>
+                                <ul>
+                                    <li><code>2, 5, 4, 80, 55, 66, 67</code></li>
+                                </ul>
+                                <li><b>Output:</b></li>
+                                <ul>
+                                <li><code>True, False, True, True, False, True, False</code></li>
+                                </ul>
+                                <li><b>Code:</b></li>
+                                <ul>
+                                <li><pre><code>public static void main(String[] args) {
+    // Do not change the main function!
+    System.out.println(riddle1(2));
+    System.out.println(riddle1(5));
+    System.out.println(riddle1(4));
+    System.out.println(riddle1(80));
+    System.out.println(riddle1(55));
+    System.out.println(riddle1(66));
+    System.out.println(riddle1(67));
+}</code></pre></li>
+                                </ul>
+                                <li><b>Should Output:</b></li>
+                                <ul>
+                                <li><div>
+                                    <img src="lab3/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/></div></li>
 
-public static double sqrt(double x) { 
-        lab3 lab = new lab3(); 
-        
-        double t = x;              // estimate of the square root of x
-        
-        // repeatedly apply Newton update step until desired precision is achieved
-        while (lab.abs(t - x/t) > epsilon * t) {
-            //TO DO: complete this while loop by updating t!
+                                </ul>
+                            </ul>
+                            <hr>
+                            <h2>Riddle 2:</h2>
+                            <ul>
+                                <li><b>Input:</b></li>
+                                <ul>
+                                    <li><code>1, 5, 6, 18, 21, 30, 23, 37 45</code></li>
+                                </ul>
+                                <li><b>Output:</b></li>
+                                <ul>
+                                <li><code>true, true, false, false,  false, false, true, true, false</code></li>
+                                </ul>
 
-        }
-        
-        return t; 
-    }    
-</code></pre></pre>
-                            <p>Compleate the missing infromation and test it by running the following in your main method:</p>
-                            <pre><code>System.out.println(sqrt(144));
-System.out.println(sqrt(63));
-System.out.println(sqrt(6));</code></pre>
-                            <p>If all goes well you should get the following as an output:</p>
-                            <div style="margin:2em;">
-                                <img src="lab3/img8.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
-                            </div>
+                                </ul>
+                                <li><b>Code:</b></li>
+                                <ul>
+                                <li><pre><code>public static void main(String[] args) {
+    // Do not change the main function!
+    System.out.println(riddle2(1));
+    System.out.println(riddle2(5));
+    System.out.println(riddle2(6));
+    System.out.println(riddle2(18));
+    System.out.println(riddle2(21));
+    System.out.println(riddle2(30));
+    System.out.println(riddle2(23));
+    System.out.println(riddle2(37));
+    System.out.println(riddle2(45));
+}</code></pre></li>
+                                </ul>
+                                <li><b>Should Output:</b></li>
+                                <ul>
+                                <li><div>
+                                    <img src="lab3/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/></div></li>
+
+                                </ul>
+                            <hr>
+                            <h2>Riddle 3:</h2>
+                             <ul>
+                                <li><b>Input - Output:</b></li>
+                                <ul>
+                                <li><pre><code>1 - 1
+2 - 1
+    2 3
+3 - 1
+    2 3
+    4 5 6
+4 - 1
+    2 3
+    4 5 6
+    7 8 9 10
+5 - 1
+    2 3
+    4 5 6
+    7 8 9 10
+    11 12 13 14 15
+                                </code></pre></li>
+                                <li><b>Code:</b></li>
+                                <ul>
+                                <li><pre><code>public static void main(String[] args) {
+    // Do not change the main function!
+    riddle3(1);
+    riddle3(2);
+    riddle3(3);
+    riddle3(4);
+    riddle3(5);
+}</code></pre></li>
+                                </ul>
+                                <li><b>Should Output:</b></li>
+                                <ul>
+                                <li><div>
+                                    <img src="lab3/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/></div></li>
+
+                                </ul>
+                            </ul>
+                        </ul>
+                            <hr>
+                            <h2>Riddle 4: <em>Hint: It starts with a B!</em></h2>
+                            <ul>
+                                <li><b>Input:</b></li>
+                                <ul>
+                                    <li><code>int[] a = {1, 2, 5, 6, 3, 14, 23, 45, 65, 78} </code></li>
+                                    <li><code>1, 4, 66, 14, 65, 99, 23</code></li>
+                                </ul>
+                                <li><b>Output:</b></li>
+                                <ul>
+                                <li><code>True, False, False, True, True, False, True </code></li>
+                                </ul>
+
+                                </ul>
+                                <li><b>Code:</b></li>
+                                <ul>
+                                <li><pre><code>public static void main(String[] args) {
+    // Do not change the main function!
+    int[] a = {1, 2, 5, 6, 3, 14, 23, 45, 65, 78};
+    System.out.println(riddle4(a, 1));
+    System.out.println(riddle4(a, 4));
+    System.out.println(riddle4(a, 66));
+    System.out.println(riddle4(a, 14));
+    System.out.println(riddle4(a, 65));
+    System.out.println(riddle4(a, 99));
+    System.out.println(riddle4(a, 23));
+}</code></pre></li>
+                                </ul>
+                                <li><b>Should Output:</b></li>
+                                <ul>
+                                <li><div>
+                                    <img src="lab3/img4.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/></div></li>
+
+                                </ul>
+                            <hr>
+                            <hr>
+                            <h2>Riddle 5: <em>No Recursion</em></h2>
+                            <ul>
+                                <li><b>Input:</b></li>
+                                <ul>
+                                    <li><code>1, 2, 3, 4, 5, 6, 7</code></li>
+                                </ul>
+                                <li><b>Output:</b></li>
+                                <ul>
+                                <li><code>1, 1, 2, 3, 5, 8, 13</code></li>
+                                </ul>
+
+                                </ul>
+                                <li><b>Code:</b></li>
+                                <ul>
+                                <li><pre><code>public static void main(String[] args) {
+    // Do not change the main function!
+    riddle5(1);
+    riddle5(2);
+    riddle5(3);
+    riddle5(4);
+    riddle5(5);
+    riddle5(6);
+    riddle5(7);
+}</code></pre></li>
+                                </ul>
+                                <li><b>Should Output:</b></li>
+                                <ul>
+                                <li><div>
+                                    <img src="lab3/img5.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%;"/></div></li>
+
+                                </ul>
+                            <hr>
+
+                            <p>Once you've finished the riddle show one of the instructors to double check!</p>
                             <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>
+
                         </div>
 					</section>
 
