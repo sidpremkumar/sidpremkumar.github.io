@@ -34,11 +34,7 @@ public class lab3 {
 
     return true;
 	}
-	// Better solution
-
-	public boolean isPowerOfTwoBetter(int n) {
-	    return n>0 && (n&n-1)==0;
-	}
+	
 }
 
 ## Riddle 2 ##
