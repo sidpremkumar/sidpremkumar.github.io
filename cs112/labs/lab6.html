@@ -60,18 +60,18 @@ public class lab6 {
 {
 
     int i=0;
-    int j=items.length-1;
-    int k=items.length-1;
-    int pivot=items[low];
-    while(j < items.length)
+    int j=0;
+    int k=high+1;
+    int pivot=0;
+    while(j < k)
     {
-        if (items[j] > pivot)
+        if (items[j] < pivot)
         {
             swap(j,i,items);
             j++;
             i++;				
         }
-        else if(items[j] < pivot)
+        else if(items[j]==pivot)
         {
             j++;
         }
@@ -84,7 +84,6 @@ public class lab6 {
     return i;
 }
 
-
 private static void swap(int i,int j,int[] items)
 {
     int temp=items[i];
@@ -95,18 +94,22 @@ private static void swap(int i,int j,int[] items)
 
 public static void quicksort(int[] arr)
 {
-    quicksort(arr,5,arr.length-1);
+    quicksort(arr,0,arr.length-1);
 }
-
 private static void quicksort(int[] arr, int low, int high) 
 { 
-    if (low < arr.length) 
-    {
+    if (low < high) 
+    { 
+        /* pi is partitioning index, arr[pi] is  
+          now at right place */
         int pi = partition(arr,low,high); 
-        quicksort(arr, low, high); 
-        quicksort(arr, low, high); 
+
+        // Recursively sort elements before 
+        // partition and after partition 
+        quicksort(arr, low, pi-1); 
+        quicksort(arr, pi+1, high); 
     } 
-} </code></pre></li>
+}  </code></pre></li>
                             </ul>
                             
                             
