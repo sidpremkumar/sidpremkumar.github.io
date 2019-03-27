@@ -58,7 +58,7 @@ private void resize() {
  // YOUR CODE HERE!
 }
 
-public int dequeue() {            // remove the top integer and return it -- will cause error if empty! 
+public int dequeue() {            // remove the top integer and return it -- return 'Integer.MIN_VALUE' if queue is empty
   //YOUR CODE HERE!   
 }
 
@@ -161,10 +161,13 @@ System.out.println(Q);
                             <p>Finally we return the 3 as the result of the method. Note that we do NOT need to remove the 7, e.g., by replacing it by 0, as the next time we enqueue it will be overwritten.</p>
                             <hr>
                             <h2>Step-Wise Refinement</h2>
-                            <p>Now we get to the point of the whole lab: complete the implementation of the starter code so that the Unit Test verifies that all works as required. However, you MUST do it incrementally, in the following way:</p>
+                            <p>Now we get to the point of the whole lab: complete the implementation of the starter code so that the Unit Test verifies that all works as required.</p>
+                            <p>You should slowly uncomment out the main function and make sure to pass all the test cases!</p>
+                            
+<!--
                             <div style="margin:2em;">
                                 <ol>
-                                <li>Preserve that much of what you need is already in place, and especially, it passes the first test with flying colors. So far so good!</li>
+                                <li>If we run out main method everything passes. So far so good!</li>
                                 <li>Comment-in the next performance test, and ONLY the next one. That is, from
                                     <div style="margin:2em;">
                                         <img src="lab8/img7.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
@@ -175,9 +178,12 @@ System.out.println(Q);
                                     </div>
                                     
                                     </li>
+                                    <li>Uncomment </li>
                                     <li>Now proceed through the rest of the unit test, writing your code incrementally, one method at a time. Note that array resizing is done last. This is explained in the next section.</li>
                                 </ol>
                             </div>
+-->
+                            
                             <hr>
                             <h2>Array Resizing</h2>
                             <p>A very common problem with array-based data structures is running out of room: the array fills up and there is no more room for new data! Fortunately, the solution is very simple: just allocate a new, bigger array, and transfer all the data over. The only trick is that you have to substitute the new array for the old one, but this is quite simple. The method stub <code>resize()</code> in the starter code can be described in pseudo-code as follows:</p>
@@ -187,7 +193,7 @@ private void resize() {
     – transfer everything from A over to the same slots in B (i.e., A[0] goes to B[0], A[1] to B[1], etc.)
     – A = B; // assign the object named by B to the name A; since A and B are references, you can do this!
 }</code></pre>
-                            <p>The last line in the method is important: since <code>A</code> and <code>B</code> are references, you can simply rename the new array <code>B</code> with the name <code>A</code>, and now <code>A</code> is magically twice as big with the same data. In the template code, I have commented out “<code>A = B</code>”; so that it will compile, but this is the Java statement that does the renaming</p>
+                            <p>The last line in the method is important: since <code>A</code> and <code>B</code> are references, you can simply rename the new array <code>B</code> with the name <code>A</code>, and now <code>A</code> is magically twice as big with the same data.</p>
                             <hr>
                             <h2>Testing your work</h2>
                             <p>If all goes well you should end up with this:</p>
