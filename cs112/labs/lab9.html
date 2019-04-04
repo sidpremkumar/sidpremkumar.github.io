@@ -53,7 +53,7 @@ a linked list without loops, and the latter returns a list that has loops.</p>
                             <img src="lab9/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
                             </div>
                             <p>You can see this changing of <code>next</code> and how the link is created by tracing the code in <code>public void add(data E)</code>.</p>
-                            <h2><code>createLinkedListWithNoLoops()</code></h2>
+                            <h2><code>createLinkedListWithLoops()</code></h2>
                             <p>
 This linked list is created in a similar way. The “cs112” node points to “cs131” and the “cs131” node points to “cs132” and so on. The only reason this linked list is different is because both the “cs235” node and the “cs131” node created in the second-to-last spot point to a special “loop” node.</p>
                             <div style="margin:2em;">
@@ -91,20 +91,29 @@ This linked list is created in a similar way. The “cs112” node points to “
                                          <li>Reset the <code>slow</code> pointer to the head of the linked list. Leave <code>fast</code> where it is.</li>
                                          <li>Move both <code>slow</code> and <code>fast</code> at the same speed (i.e. move them each to the next node).</li>
                                          <li>The beginning of the loop is where <code>slow</code> and <code>fast</code> meet each other. Return this node.</li>
-                                         <li>But hold on! Do you remember the small little proof that was done in lecture why this actually works? <strong>Hint:</strong> The number of steps the slow pointer is equal to the number of fast pointer. i.e., If the slow pointer has travelled a total distance of <em>k + l</em> where <em>k</em> is the number of nodes before hitting the start of the loop, and <em>l</em> is the number of nodes inside the loop. And if the fast pointer has travelled a total distance of <em>k + l + n</em> where <em>n</em> is the total number of nodes inside the loop, then you know that the number of steps (not the distance) is equal! i.e.
+                                         <li>Why does this work? <strong>Hint:</strong> The number of steps the slow pointer is equal to the number of fast pointer. i.e., If the slow pointer has travelled a total distance of <em>k + l</em> where <em>k</em> is the number of nodes before hitting the start of the loop, and <em>l</em> is the number of nodes inside the loop. And if the fast pointer has travelled a total distance of <em>k + l + n</em> where <em>n</em> is the total number of nodes inside the loop, then you know that the number of steps (not the distance) is equal! i.e.
                                              <div style="margin:2em;">
                                             <img src="lab9/img8.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
                                         </div>
                                              
                                              </li>
-                                             <li>So if you move the slow pointer back to the head position of the linked list and make it travel <em>k</em> steps and make the fast pointer (do not change its position) and make it travel <em>n − l</em> steps, which reall is <em>k</em> steps, both will meet at the start of the loop! Is’t this cool and awesome!? This is why we move the slow reference to the start of the linked list and do not change the position of the fast reference.</li>
+                                             <li>So if you move the slow pointer back to the head position of the linked list and make it travel <em>k</em> steps and make the fast pointer (do not change its position) travel <em>n − l</em> steps, which reall is <em>k</em> steps, both will meet at the start of the loop! Is’t this cool and awesome!? This is why we move the slow reference to the start of the linked list and do not change the position of the fast reference.</li>
+                                             <li>
+                                         <p>Here is another resource that attempts to explain it in a different way:</p>
+                                             <div style="margin:2em;">
+                                            <img src="lab9/img9.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                                        </div>
+                                         </li>
                                          </ul>
+                                         
                                         </div>
                                     </li>
                                 </ol>
                                 <p>Before coding, try making a linked list with a loop on a piece of paper and trace these steps on it. <br> Once you've finished the code you can show a CA or TF to get marked for attendance!</p>
                             </div>
-                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>
+                            
+                            <p><strong><em>Make sure to mark your attendance <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=zDJ91SHBj0iwe9_nBWgMcf-a0itShaRFvDlj7RunjvJURVZCWEs4REc5SzJMQThGQTFVSjhGOURDOC4u">here</a> before leaving!</em></strong></p>
+<!--                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>-->
                         </div>
 					</section>
 
