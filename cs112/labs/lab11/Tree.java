@@ -47,7 +47,9 @@ public class Tree<T> implements Iterable<T> {
 
 		}
 
-		public void main(String []args)
+		
+}
+    public static void main(String []args)
 		{
 			Tree<Integer> t=new Tree<>();
 			t.root=new Tree.Node<Integer>(1);
@@ -67,5 +69,4 @@ public class Tree<T> implements Iterable<T> {
 			}
 
 		}
-}
 }
