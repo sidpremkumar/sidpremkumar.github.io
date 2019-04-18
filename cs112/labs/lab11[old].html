@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+        <link rel="shortcut icon" href="../../images/icon.png" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="../../index.html">Home</a></li>
+                        <li><a href="../labs.html">Labs</a></li>
+                       <li><a href="../calender.html">Office Hours</a></li>
+                        <li><a href="../attendance.html">Attendance</a></li>
+                        <li><a href="lab11.html" class="active">Lab 11</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Lab 11</h1>
+                            <p>In todays lab we're going to be learning more about Binary Search Trees (BST). We're going to create methods for: </p>
+                            <div style="margin:2em;">
+                                <ul>
+                                    <li>Insertion</li>
+                                    <li>Search</li>
+                                    <li>In-order Traversal</li>
+                                </ul>
+                            </div>
+                            <p><br>Let's start by saving <a href="lab11/BinarySearchtTree.java">this</a> file (right click - save as) (Similar to how we did it in <a href="lab9.html">Lab 9</a>. Then <em>drag</em> it into your labs project in Eclipse. You should end up with this:</p>
+                            <div style="margin:2em;">
+                            <img src="lab11/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div> 
+                            <hr>
+                            <h2>What is a Binary Search Tree?</h2>
+                            <p>A BST is a binary tree in which each node has a key that holds a value. The nodes have the following properties:</p>
+                            <div style="margin:2em;">
+                                <ol>
+                                    <li>The <strong>left</strong> subtree of a node contains only nodes with keys <strong>less</strong> than the nodes key.</li>
+                                    <li>The <strong>right</strong> subtree of a node contains only nodes with keys <strong>greater</strong> than the nodes key.</li>
+                                    <li><strong>Both the left and right subtrees of a node must also be binary search trees.</strong></li>
+                                    <li>For this lab, we can assume there are <strong>no duplicate nodes</strong>. (As you implement the methods in this lab, think about why this makes things easier. On your homework, you will explore some strategies for dealing with duplicate nodes in BSTs.)</li>
+                                </ol>
+                            </div>
+                            <p>Here is an example of a BST of size 9 with depth 3 (8 is at the root).</p>
+                            <div style="margin:2em;">
+                                <img src="lab11/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <hr>
+                            <h2>Insertion</h2>
+                            <p><strong><em>How does insertion work in a BST?</em></strong><br>A new key is always inserted as a leaf, which is a node without any children. We start searching from the root, and we compare our key to the current node at each step along the way. Eventually, we will we find a leaf node, and we will add our key as its child. Here is an example:</p>
+                            <div style="margin:2em;">
+                                <img src="lab11/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p><strong><em>What you need to do:</em></strong><br>In <code>BinarySearchTree.java</code>, complete the method <code>InsertRec</code>. The comments encorage you to split this task up into two parts:</p>
+                            <div style="margin:2em;">
+                                <ul>
+                                    <li>Base case: If the tree is empty, return a new node with the key value.</li>
+                                    <li>Recursive step: Decide to move to either the left or right child of the root, and call the method on that child.</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <h2>Search</h2>
+                            <p><strong><em>How does search work in a BST?</em></strong><br>We are given a key, and our goal is to find out if the key appears in the BST. If it does, we return <code>true</code>. Otherwise, we return <code>false</code>. To begin, we compare our key with the root of the tree. If they are the same, we can return true right away. However, if the key is less than the value of the root, we recurse over the left subtree. Likewise, if the key is larger than the value of the root, we recurse over the right subtree. </p>
+                            <div style="margin:2em;">
+                                <img src="lab11/img4.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p><strong><em>What you need to do:</em></strong><br>
+Complete the <code>search</code> method in <code>BinarySearchTree.java</code>. The comments give you guid- ance on how to implement the recursion:</p>
+                            <div style="margin:2em;">
+                                <ol>
+                                <li>3 base cases:</li>
+                                    <div style="margin:2em;">
+                                        <ul>
+                                            <li>Root is null</li>
+                                            <li>Root is the key</li>
+                                            <li>Root has neither a left nor right key</li>
+                                        </ul>
+                                    </div>
+                                <li>Recursive step in two parts:</li>
+                                    <div style="margin:2em;">
+                                        <ul>
+                                            <li>Key is less than root</li>
+                                            <li>Key is greater than root</li>
+                                        </ul>
+                                    </div>
+                                </ol>
+                            </div>
+                            <p>Please note: only return a Boolean from the base cases! Also, note we must also return a Boolean of <code>False</code> outside of the conditionals (see this highlighted as ”Base Case” in the comments). Think about why we need to do this.</p>
+                            <hr>
+                            <h2>InOrder Trasversal</h2>
+                            <p><strong><em>How does InOrder Traversal work in a BST?</em></strong><br>Everything in the left subtree of the root is less than the root, and everything in the right subtree is greater than the root. Therefore, an InOrder traversal of a BST automatically puts all of the elements in order! First, we recursively visit the left child of our root, then we visit the root, and then we recursively visit the right child of our root. Her is an example:</p>
+                            <div style="margin:2em;">
+                                <img src="lab11/img5.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p><strong><em>What you need to do:</em></strong><br>Complete the <code>inorderRec</code> method in <code>BinarySearchTree.java</code>. Your goal is to print out all of the values in the BST in order. Once again this calls for recursion:</p>
+                            <div style="margin:2em;">
+                                <ol>
+                                    <li>Make sure your key value isn’t equal to <code>null</code> to avoid a null exception!</li>
+                                    <li>Recurse over the left subtree</li>
+                                    <li>Print the current node value</li>
+                                    <li>Recurse over the right subtree</li>
+                                </ol>
+                            </div>
+                            <hr>
+                            <h2>Checking your work</h2>
+                            <p>To check your work run the main functon you should get this as an output:</p>
+                            <div style="margin:2em;">
+                                <img src="lab11/img6.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <p>To finish the lab think about the time complexity of Insertion, Search, and InOrder Traversal on a BST? We will discuss this in lab, but see if you can figure it out on your own first!</p>
+                            
+                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>
+                        
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
