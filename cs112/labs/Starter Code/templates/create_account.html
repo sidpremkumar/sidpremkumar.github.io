@@ -1,0 +1,10 @@
+<html>
+    <body>
+      <h1>There is no user with the name {{ username }}. Would you like to create an account?</h1>
+      <form action="/create_account" method="POST">
+          <input type="text" id="username" name="username" value="Username">
+          <input type="text" id="password" name="password" value="Password">
+           <input type = "submit" value = "Create Account">
+      </form>
+    </body>
+</html>
