@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sid Premkumar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+        <link rel="shortcut icon" href="../../images/icon.png" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Sid Premkumar</a>
+				<nav>
+					<ul>
+						<li><a href="../../index.html">Home</a></li>
+                        <li><a href="../labs.html">Labs</a></li>
+                        <li><a href="../calender.html">Office Hours</a></li>
+                        <li><a href="../attendance.html">Attendance</a></li>
+                        <li><a href="lab8.html" class="active">Lab 9</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Lab 9</h1>
+                            <p>In this lab, you will write code to help you get familiar with loops in a linked list. Linked lists are a data structure that consist of a group of nodes which together represent a sequence. Until now, you have worked with lists that have references to the next element in a series. <br>In this lab, we will learn how to make a node point to some earlier node in the linked list, therefore creating a loop.<br>Let's start by saving <a href="lab8/LinkedList.java">this</a> file (right click - save as). Then <em>drag</em> it into your labs project in Eclipse. You should end up with this:</p>
+                            <div style="margin:2em;">
+                            <img src="lab8/img1.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 60%; "/>
+                            </div>
+                            <hr>
+                            <h2>What is a Linked List?</h2>
+                            <p>As mentioned above, linked lists are a data structure that are made of nodes that contain data of any type. They also keep a reference to another node, usually called <code>next</code>.<br>In the starter code, you will see a class called <code>Node</code> that has a constructor that initializes a node with some data (of type <code>E</code>) and another node <code>next</code> in the sequence. Also, in a linked list you can keep track of the <code>head</code> and the <code>tail</code> of the list.</p>
+                            <div style="margin:2em;">
+                            <img src="lab8/img2.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                            </div>
+                            <p><a href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html">Here</a> is a great resource on LinkedLists</p>
+                            <hr>
+                            <h2>How do we create a linked list such that it has loops in it?</h2>
+                            <p>The main method has two linked lists: <code>ll1</code> and <code>ll2</code>. One is made using <code>createLinkedListWithNoLoops()</code> and the other with <code>createLinkedListWithLoops()</code>. As per their names, the former returns
+a linked list without loops, and the latter returns a list that has loops.</p>
+
+                            <h2><code>createLinkedListWithNoLoops()</code></h2>
+                            <p>Every time you call <code>add</code> with some data, it creates a new node and updates the new <code>tail</code> to be that node. Also, the old <code>tail</code> points to the new <code>tail</code> just added. For instance, when ”cs112” is added to the linked list, it becomes the <code>head</code>. The <code>tail</code> is also “cs112”, since no other node exists. Then, when “cs131” is added to the list, the new tail will be the “cs131” node, and the previous <code>tail</code> (“cs112”) will have “cs131” as its <code>next</code>. Hence, the nodes will be added in a linear way with <code>head</code> staying where it is and the pointers changing between the <code>tails</code>.</p>
+                            <div style="margin:2em;">
+                            <img src="lab8/img3.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                            </div>
+                            <p>You can see this changing of <code>next</code> and how the link is created by tracing the code in <code>public void add(data E)</code>.</p>
+                            <h2><code>createLinkedListWithLoops()</code></h2>
+                            <p>
+This linked list is created in a similar way. The “cs112” node points to “cs131” and the “cs131” node points to “cs132” and so on. The only reason this linked list is different is because both the “cs235” node and the “cs131” node created in the second-to-last spot point to a special “loop” node.</p>
+                            <div style="margin:2em;">
+                                <img src="lab8/img5.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                                <br>The resulting loop that will be created is shown in the figure below:<br>
+                            <img src="lab8/img4.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                            </div>
+                            <hr>
+                            <h2>Part 1: <code>add</code> Method:</h2>
+                            <p>As you can see from the given code, there are two <code>add</code> methods, differentiated by the arguments that are taken as input(s). (Recall: this is called overloading). One of the methods takes only data of type <code>E</code> as an argument; and it makes a <code>Node<E></code></code> which gets added to the end of the linked list. The code for this is already provided to you. Make sure to study this code first before moving forward.<br>You are now asked to implement <code>add</code> method that takes a <code>Node<E></code></code> as an argument. This <code>Node<E></code></code> must get added to the end of the linked list. This is very similar to the other <code>add</code>, so make sure you understand that code. There should be an <code>else-if</code> statement to see if the linked list is empty or not–depending on the answer, you add this node in different ways. Think about why this is necessary!</p>
+                            <div style="margin:2em;">
+                                <img src="lab8/img6.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                            </div>
+                            <hr>
+                            <h2>Part 2: Get start of loop node method</h2>
+                            <p>Now, let us really have fun with this lab! Write a method that checks for any loops within a Linked List. If it does, you must return the <code>Node<E></code></code> that represents the start of the loop. If there is no loop, just return <code>NULL</code>. See the figure above for a linked list with a loop, and this loop begins on ‘350’.<br>This code contains two parts:</p>
+                            <div style="margin:2em;">
+                                <ol>
+                                <li>Check if a loop exists. Use this algorithm:
+                                    <div style="margin:2em;">
+                                        <ul>
+                                        <li>Initially start with two new nodes, <code>slow</code> and <code>fast</code>, that are set to be the head of the linked list. This has been done for you in the code.</li>
+                                        <li>Go through the linked list in a <code>while</code> loop. Fast should move at twice the speed of <code>slow</code>. For example, if <code>slow</code> is moving to the next node, <code>fast</code> should be going to the next of the next node.</li>
+                                        <li>If <code>fast</code> ends up equalling <code>slow</code>, then a loop exists, so set the appropriate Boolean to be <code>TRUE</code>. Also, break out of the <code>while</code> loop.</li>
+                                        </ul>
+                                        This algorithm should be completed within the first <code>while</code> loop provided and shown in the figure below. Note: since <code>fast</code> is moving at twice the speed, we need to check not only that <code>fast</code> is not <code>NULL</code> but also that <code>fast.next</code> is not <code>NULL</code>.
+                                        <div style="margin:2em;">
+                                            <img src="lab8/img7.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                                        </div>
+                                        This algorithm works because if there is a loop, <code>fast</code> will come back and run into <code>slow</code> at some point. However, if there is no loop, <code>fast</code> will become <code>NULL</code> as it will reach the end of the linked list and exit the <code>while</code> loop.
+                                    </div></li>
+                                    <li>Now let us proceed to the next part of this method: if a loop exits, we need to find the start of it. Follow these steps to find the start of the loop:
+                                     <div style="margin:2em;">
+                                         <ul>
+                                         <li>Reset the <code>slow</code> pointer to the head of the linked list. Leave <code>fast</code> where it is.</li>
+                                         <li>Move both <code>slow</code> and <code>fast</code> at the same speed (i.e. move them each to the next node).</li>
+                                         <li>The beginning of the loop is where <code>slow</code> and <code>fast</code> meet each other. Return this node.</li>
+                                         <li>Why does this work? <strong>Hint:</strong> The number of steps the slow pointer is equal to the number of fast pointer. i.e., If the slow pointer has travelled a total distance of <em>k + l</em> where <em>k</em> is the number of nodes before hitting the start of the loop, and <em>l</em> is the number of nodes inside the loop. And if the fast pointer has travelled a total distance of <em>k + l + n</em> where <em>n</em> is the total number of nodes inside the loop, then you know that the number of steps (not the distance) is equal! i.e.
+                                             <div style="margin:2em;">
+                                            <img src="lab8/img8.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                                        </div>
+
+                                             </li>
+                                             <li>So if you move the slow pointer back to the head position of the linked list and make it travel <em>k</em> steps and make the fast pointer (do not change its position) travel <em>n − l</em> steps, which reall is <em>k</em> steps, both will meet at the start of the loop! Is’t this cool and awesome!? This is why we move the slow reference to the start of the linked list and do not change the position of the fast reference.</li>
+                                             <li>
+                                         <p>Here is another resource that attempts to explain it in a different way:</p>
+                                             <div style="margin:2em;">
+                                            <img src="lab8/img9.jpeg" alt="" style=" margin: 0 auto;  object-fit: contain; height: 10%; width: 40%; "/>
+                                        </div>
+                                         </li>
+                                         </ul>
+
+                                        </div>
+                                    </li>
+                                </ol>
+                                <p>Before coding, try making a linked list with a loop on a piece of paper and trace these steps on it. <br> Once you've finished the code you can show a CA or TF to get marked for attendance!</p>
+                            </div>
+
+                            <p><strong><em>Make sure to mark your attendance <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=zDJ91SHBj0iwe9_nBWgMcf-a0itShaRFvDlj7RunjvJURVZCWEs4REc5SzJMQThGQTFVSjhGOURDOC4u">here</a> before leaving!</em></strong></p>
+                             <a href="lab8/LinkedListlab8Solutions.java" class="button">Solutions</a>
+<!--                            <p><strong><em>Make sure to mark your attendance <a href="../attendance.html">here</a> before leaving!</em></strong></p>-->
+                        </div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Sid Premkumar. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
