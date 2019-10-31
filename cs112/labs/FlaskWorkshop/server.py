@@ -21,7 +21,6 @@ def login():
     username = request.form['username']
     password = request.form['password']
 
-    import pdb; pdb.set_trace()
     if username in data_base:
         # We have a user with the same username
         if password == data_base[username]:
