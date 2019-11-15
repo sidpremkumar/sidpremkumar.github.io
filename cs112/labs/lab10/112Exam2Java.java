@@ -17,29 +17,16 @@ public boolean incresingSequence() throws EmptyLinkedList{
 
 // Question 3 - a
 public int getHeight(){
-  if (root.right == null && root.left == null) {
-    return 1;
-  }
-  if (root.right != null && root.left == null) {
-    return _getHeight(root.right) + 1;
-  }
-  if (root.right == null && root.left != null) {
-    return _getHeight(root.left) + 1;
-  }
-  return _getHeight(root.right) + _getHeight(root.left) + 1;
+  return _getHeight(root)
 }
 
 public _getHeight(Node<T> r){
-  if (r.right == null && r.left == null) {
-    return 1;
+  if (r == null || (r.left==null && r.right==null)){
+    return 0;
   }
-  if (r.right != null && r.left == null) {
-    return _getHeight(root.right) + 1;
-  }
-  if (r.right == null && root.r != null) {
-    return _getHeight(root.left) + 1;
-  }
-  return _getHeight(root.right) + _getHeight(root.left) + 1;
+  int rightHeight = _getHeight(r.right) + 1;
+  int leftHeight = _getHeight(r.left) + 1;
+  return Math.max(rightHeight, leftHeight);
 }
 //alt: _getHeight()
 public int _getHeight(Node<T> r){
